@@ -21,5 +21,10 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpforce);
+        }
 	}
 }
