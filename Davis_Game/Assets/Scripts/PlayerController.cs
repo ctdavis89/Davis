@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public float moveSpeed;
     public float jumpforce;
@@ -14,19 +15,20 @@ public class PlayerController : MonoBehaviour {
 
     private Collider2D myCollider;
 
-    RaycastHit _hit;
-    ContactFilter2D _filter;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
 
         myRigidbody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
 
@@ -39,29 +41,7 @@ public class PlayerController : MonoBehaviour {
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpforce);
             }
-            else
-            {
-                Grapple();
-            }
-        }
-	}
-
-    void Grapple()
-    {
-
-        if(Physics2D.Raycast(transform.position, transform.up, 1000 _filter ,_hits))
-        {
-            
-
 
         }
-        if (Physics.Raycast(transform.position, transform.up, out _hit, 1000))
-        {
-
-            
-        }
-
-
     }
-
 }
